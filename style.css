@@ -1,0 +1,340 @@
+/*  
+Theme Name: Chris Willett
+Theme URI: http://chriswillett.com
+Version: 1.0
+Author: Chris Willett
+Author URI: http://chriswillett.com
+*/
+
+body { 
+	background: #6f6e6f url("images/bg.jpg") repeat-x 0 280px; 
+	margin:0;
+	padding:0;
+	font:16px "Trebuchet MS",sans-serif;
+	color:#fff;
+}
+
+a {
+	font:16px "Trebuchet MS",sans-serif;
+	color:#aff3fd;
+	font-weight:bold;
+}
+
+h2 a { font-size:20px }
+
+.header {
+	text-align:center;
+	margin: 0 auto;
+	width:100%;
+	height:280px;
+	background: #6f6e6f url("images/bg2.jpg") no-repeat 0 0; 
+}
+
+.main {
+	text-align:center;
+	margin: 0 auto;
+	width:1200px;
+}
+
+.content {
+	margin: 0 auto;
+	width:1096px;
+}
+
+#nav { 
+	text-align:justify;
+	margin:5px 0 0 13px;
+	width:1133px;
+	padding:0;	
+}
+
+#nav ul {
+	white-space:nowrap;
+	list-style-type:none;
+	display:inline;
+	text-indent:0px;
+}
+
+#nav * {
+	display:inline;
+	/*margin-right:50px;*/
+}
+
+#nav ul li a, #nav ul li a:active, #nav ul li a:visited {
+	font:32px Geneva,sans-serif;
+	color: #530c0c;
+	text-align:left;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+}
+
+#nav ul li a.highlight {
+	font:32px Geneva,sans-serif;
+	color: #530c0c;
+	text-align:left;
+	margin:0;
+	padding:0;
+	text-decoration:none;
+	color:#fff;
+}
+
+#nav span {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+.left_col {
+	float:left;
+	width:527px;
+	height:75px;
+	text-align:left;
+}
+
+.right_col {
+	float:right;
+	width:395px;
+	vertical-align:middle;
+}
+
+.cb {
+	clear:both;
+}
+
+#news {
+	text-align:left;
+}
+
+#videos {
+	text-align:left;
+	margin-top:-8px;
+}
+	
+.image {
+	margin:30px 0 10px;
+}
+
+#header_container {
+	position:relative;
+	text-align:left;
+	width: 1113px;
+	height: 280px;
+	margin: 0 auto;
+}
+
+#logo {
+	height:66px;
+	text-align:center;
+	margin: 5px auto;
+	width:1096px;
+	vertical-align:middle;
+}
+
+#chriswillett {
+	color:#fff;
+	font:32px Geneva,sans-serif;
+	vertical-align:bottom;
+	padding-top:6px;
+}
+
+#drums {
+	color:#fff;
+	font:32px Geneva,sans-serif;
+	text-align:right;
+	vertical-align:bottom;
+	padding-top:12px;
+}
+
+#mp3s ul {
+	list-style-type: none;
+	margin:0 0 20px;
+	padding:0;
+}
+
+#mp3s ul li {
+	color:#fff;
+	font:18px Trebuchet MS;
+	font-style:italic;
+}
+
+#mp3s ul li a {
+	color:#aff3fd;
+	font-style:normal;
+}
+
+a.section_title {
+	font:32px Geneva, sans-serif;
+	color: #aff3fd;
+	text-align:left;
+	text-decoration:none;
+}
+
+.section_head {
+	margin:30px 0 20px;
+	padding:0;
+	border-bottom: 1px #aff3fd solid
+}
+
+.video_head {
+	margin-top:37px
+}
+
+#sidebar {
+	margin: 30px 0 0;
+	text-align:left
+}
+
+#sidebar .title {
+	border-bottom:1px #aff3fd solid;
+	text-align:right
+}
+
+#sidebar .title a.rsswidget img {
+	display:none!important;
+	visibility:hidden!important;
+}
+
+#sidebar .title a.rsswidget {
+	font:32px Geneva, sans-serif;
+	margin:0;
+	text-decoration:none;
+	text-align:right
+}
+
+#sidebar ul li {
+	list-style:none;
+	margin:10px 0!important
+}
+
+#sidebar ul li  a.rsswidget {
+	display:block;
+	font-size:16px
+}
+#sidebar ul li  .rss-date {
+	text-align:right;
+	display:block;
+	font-size:14px
+}
+
+#sidebar ul li  .rssSummary {
+	display:block;
+	font-size:14px;
+}
+
+#sidebar ul .title {
+	margin-top:40px;
+	font: 24px Geneva, sans-serif;
+	color: #AFF3FD;
+	text-transform: lowercase
+}
+
+#sidebar ul .fb_iframe_widget  {
+	float:right;
+	margin: 20px 0;
+}
+
+#sidebar_river {
+	margin: 30px 0 0;
+	text-align:left
+}
+
+#sidebar_river .title {
+	border-bottom:1px #aff3fd solid;
+	text-align:left
+}
+
+#sidebar_river .title a.rsswidget img {
+	display:none!important;
+	visibility:hidden!important;
+}
+
+#sidebar_river .title a.rsswidget {
+	font:32px Geneva, sans-serif;
+	margin:0;
+	text-decoration:none;
+	text-align:left
+}
+
+#sidebar_river ul { padding:0 }
+
+#sidebar_river ul li {
+	list-style:none;
+	margin:10px 0!important
+}
+
+#sidebar_river ul li  a.rsswidget {
+	display:inline-block;
+	font-size:16px
+}
+#sidebar_river ul li  .rss-date {
+	text-align:right;
+	display:inline-block;
+	font-size:14px
+}
+
+#sidebar_river ul li  .rssSummary {
+	display:inline-block;
+	font-size:14px;
+}
+
+.ga_banner_468x60 {
+	clear:both;
+	float:left;
+	width:468px;
+	height:0;
+}
+
+.ga_banner_300x250 { 
+	height:0; 
+	display:none 
+}
+
+.ga_banner_468x60 { 
+	margin-bottom:10px 
+}
+
+.post { 
+	clear:both; 
+	float:left 
+}
+	
+/* Sortables page */
+
+div#sortWrapper { 
+	width:450px; 
+	text-align: center; 
+	margin: 10px auto!important; 
+	display: inline-block 
+}
+
+div.sortable { 
+	width: 150px;
+    margin: 4px; 
+    text-align: center; 
+    border: medium solid #aff3fd; 
+    padding: 4px;
+}
+
+h1#playlist_heading { float:right }
+
+h1#collection_heading { float:left }
+
+#playlistContainer {
+	float:right; 
+	min-height:100px; 
+	width:150px
+}
+
+#collectionContainer {
+	float:left; 
+	min-height:100px;
+	 width:150px
+}
+
+div.playlist {
+	background-color: #aff3fd; 
+	color:#000; 
+}
+	
