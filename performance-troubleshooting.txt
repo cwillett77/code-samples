@@ -1,0 +1,36 @@
+A list of things I do to troubleshoot slow performance or errors on a site (not necessarily in this order)
+
+1. Look at the PHP and MySQL error logs and fix any code/queries accordingly
+
+2. Look at the access_log and slow query log to see if any pages are geting hammered or if any queries are performing poorly
+
+3. Run top on all of the servers and look at the load on the boxes to see if they are exceptionally high on one or several in particular,
+ and see if there is any swapping. Maybe some tuning is necessary, buffers may need to be increased/decreased, etc. ( maybe buffer size is too large for the amount of RAM )
+ 
+4. Use ps -aux and show processlist to actually see what's going on on each server if the logs didn't reveal enough. Maybe there is a cron job or some other not db related process that's running that is creating load. 
+
+5. Use EXPLAIN EXTENDED [query] \G; on queries with particular attention to the type, rows and extra fields to see what kind of join the optimizer is using and whether an index or indexes are being used or if doing a filesort or creating a temp table (worst scenarios). Also uses SHOW WARNINGS to get more detail, maybe the query just isn't returning the right data or has an error. 
+
+6. Break down the query into subqueries to make sure it's returning the data I would expect.
+
+7. Figure out whether rewriting the query or adding/removing indexes would help more and do that first (on the dev server first). 
+	a. if the type is all or anything worse than eq_ref, an easy initial fix would be to make sure the query can't be optimized. (i.e. using a straight join instead of using IN() ). Then test again with explain and see if it helped 
+	b. sometimes even changing the order of the fields joined (in multi-join), due to the number of rows the optimizer has to scan, can help. reviewing the rows field and looking at how many rows would have to be scanned for each join will help to determine the order
+	c. if a common query is joining on a field in two tables and there is no index, add one to each (test with explain again to see if it helped)
+	Use a script or app to do some testing
+	d. If LIKE or MATCH AGAINST (better) queries must be used and they are particularly large tables, use SphinxSE instead, it helps a lot
+	e. if there are too many indexes or some are not being used, it will slow down performace, particularly writes. If there are more writes than read, this would be really bad, so sometimes unneeded indexes can be removed and it will increase performance.
+	
+8. If LIKE or MATCH AGAINST is not being used, use InnoDB for the storage engine, by and large it performs better
+	
+9. SHOW CREATE TABLE and SHOW INDEXES\G are very helpful for seeing how each table is structured. 
+
+10. Many people use OPTIMIZE TABLE, to rebuild a table, but this can take hours and doesn't always help (esp with InnoDB). What's faster and more effective is to drop and add the indexes on the tables. This usually takes minutes and is much more effective. Should be done during off-peak hours obviously. Or you could lock writes on the table and copy it, perform the work and do an atomic swap on the tables, but your app would have to handle that gracefully.
+
+11. Use show status like 'Handler_%'; This will show whether large scans were done and indicates when indexes are not be utilized. 
+
+...these are just some of the basic practices. Obviously looking at improvements to the schema (normalization) can be a more global solution to chronic issues.
+
+Cheers!
+
+Chris 
