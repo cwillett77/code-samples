@@ -1,0 +1,80 @@
+<!DOCTYPE html5>
+<html>
+<head>
+	<style>
+		
+	/* HTML ELEMENTS */
+	body { background-color:#000; font:14px/21px "Trebuchet MS",Arial,Helvetica,sans-serif; color:#fff} 
+	h1 { font: bold 65px/60px Helvetica, Arial, Sans-serif; text-align: center; color: #fff; text-shadow: 0px 2px 6px #333; }
+	h1 small{ font-size: 20px; text-transform:uppercase; letter-spacing: 14px; display: block; color: #000; }
+	h2 a { display: block; text-decoration: none; margin: 0 0 30px 0; font: italic 45px Georgia, Times, Serif;  text-align: center; color: #bfe1f1; text-shadow: 0px 2px 6px #333; }
+	h2 a:hover { color: #90bcd0; }
+	
+	/* COMMON CLASSES */
+	.break { clear:both; }
+	
+	/* WRAPPER */
+	#wrapper { width:960px; margin:40px auto; }
+	
+	/* CONTENT */
+	#content { }
+	#content .info { padding:10px; }
+	/* MOVIE POSTERS */
+	#frames { list-style:none; margin:100px 0; height:550px; width: 930px; display: inline-block }
+	#frames li { display:inline; float:left;
+		-webkit-perspective: 500; -webkit-transform-style: preserve-3d;
+		-webkit-transition-property: perspective; -webkit-transition-duration: 0.5s; }
+	#frames li:hover { -webkit-perspective: 5000; }
+		
+	#frames li img { border:10px solid #fcfafa; -webkit-transform: rotateY(30deg);
+		-moz-box-shadow:0 3px 10px #888; -webkit-box-shadow:0 3px 10px #888;
+		-webkit-transition-property: transform; -webkit-transition-duration: 0.5s; }
+	#frames li:hover img { -webkit-transform: rotateY(0deg); }
+	
+	.photoinfo { border:10px solid #B160FB; padding:20px; width:200px; height:180px; margin:-195px 0 0 55px; position:absolute;
+		-moz-box-shadow:0 20px 40px #888; -webkit-box-shadow:0 20px 40px #888;
+		-webkit-transform: translateZ(30px) rotateY(30deg);
+		-webkit-transition-property: transform, box-shadow, margin; -webkit-transition-duration: 0.5s; }
+		
+	#frames li:hover .photoinfo { -webkit-transform: rotateY(0deg); -webkit-box-shadow:0 5px 10px #888; margin:-175px 0 0 30px; }
+		
+	.photoinfo h3 { color:#77fcfd; font-variant: small-caps; font-family:Georgia,serif,Times; text-align:center; padding-bottom:15px; text-shadow: 2px 2px 2px #000; }
+	.photoinfo p { padding-bottom:15px; text-shadow: 2px 2px 2px #000;}
+	.photoinfo a { background-color:#7a3f3a; padding:5px 10px; color:#eee; text-decoration:none; display:block; width:80px; text-align:center; margin:0 auto;
+		-moz-border-radius:5px; -webkit-border-radius:5px; }
+	.photoinfo a:hover, .photoinfo a:focus { background-color:#6a191f; color:#fff; }
+	</style>
+</head>
+<body>
+<div id="wrapper">
+	<h1>3d animation using CSS3</h1>
+	<div id="content">
+		<p class="info">This is an example of CSS3 animation and 3d effects. Using the <code>perspective</code>, <code>transform</code> and <code>transition</code> properties, we can create a 3d animation effect. Simply hover over the movie posters below to see the effect in it's full glory.</p>
+		<p class="info">Please make sure you're running the latest version of a <code>-webkit</code> based browser (Apple Safari or Google Chrome) to see the effect.</p>
+		<ul id="frames">
+			<li>
+				<img src="images/donna_bratdoll.jpg" alt="My Fiancee" width="300" />
+				<div class="photoinfo">
+					<h3>My Fiancee</h3>
+					<p>I love this picture of my lady, we met back in college and were re-united through Facebook...</p>
+				</div>
+			</li>
+			<li>
+				<img src="images/IMG_0450.JPG" alt="Pork Pie Kit" width="300" />
+				<div class="photoinfo">
+					<h3>My Fiancee again</h3>
+					<p>Since not to many photos in my collection compare, I thought I share another...</p>
+				</div>
+			</li>
+			<li>
+				<img src="images/IMG_0469.JPG" alt="My Lady" width="300" />
+				<div class="photoinfo">
+					<h3>My favorite kit</h3>
+					<p>As much as I love my Grestch kit and my Ludwig Vistalite, this Pork Pie kit is insane...</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -34,4 +34,8 @@ function merge( $arr1, $arr2 ) {
     // return the output array	
     return $output;
 }
+
+$output = merge_sort( array( 12, 59, 44, 1, 99, 13, 29 ) );
+print_r($output); 
 ?>
+
