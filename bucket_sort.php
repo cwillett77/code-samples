@@ -1,36 +1,60 @@
-<? // Bucket sort
-
-$arr = array();
-$size = 10;
-
-for($x = 0; $x < $size; $x++)
-    $arr[] = rand(1, 100);
-
-foreach($arr as $a)
-    echo $a ." ";
-echo "\n\n";
-
-
-for($x = 1; $x < 4; $x++) {
+<? 
+function insertion_sort(&$sortables) {
     
+    if(!is_array($sortables)) return;
+    
+    for($x = 1; $x < sizeof($sortables); $x++) {
+        
+        $curr_val = $sortables[$x];
+        $y = $x - 1;
+        
+        while ($y >= 0 && ($curr_val < $sortables[$y]) ) {
+            $sortables[$y + 1] = $sortables[$y];
+            $y--;
+        }
+        $sortables[$y + 1] = $curr_val;
+    }
+    
+}
+
+function bucket_sort(&$arr) {
+
+    $size = sizeof($arr);
+    
+    foreach($arr as $a)
+        echo $a ." ";
+    echo "\n\n";
+        
+    // initialize buckets
     $bucket = array();
     for($row = 0; $row < $size; $row++)
         $bucket[$row]= array();
-       
+    
+    
     foreach($arr as $a) {
-        
-        $slot = (strlen($a) > 1) ? substr($a, -($x), 1) : 0;
-        $single_digit = (!is_null($slot)) ? $slot : 0;
-        $bucket[$single_digit][] = $a;           
-        
+        $slot = ceil($a / 10);
+        $bucket[$slot][] = $a;           
     }
-    $arr = array();
-    foreach($bucket as $row) {
-        foreach($row as $number) {
-            $arr[] = $number;
-        }
+    
+    $y = 0;
+    $final_arr = array();
+    for($x = 1; $x <= $size; $x++) {
+ 
+         if(!empty($bucket[$x]))
+            insertion_sort($bucket[$x]);
+        
+        foreach($bucket[$x] as $b) 
+            $final_arr[$y++] = $b;
     }
+    
+    foreach($final_arr as $a)
+        echo $a ." ";
+    echo "\n\n";
+
 }
-foreach($arr as $a)
-    echo $a ." ";
-echo "\n\n";
+
+$arr = array();
+for($x = 0; $x < 10; $x++)
+    $arr[] = rand(1, 99);
+     
+bucket_sort($arr);
