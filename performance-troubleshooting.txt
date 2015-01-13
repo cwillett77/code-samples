@@ -1,6 +1,6 @@
 A list of things I do to troubleshoot slow performance or errors on a site (not necessarily in this order)
 
-1. Look at the PHP and MySQL error logs and fix any code/queries accordingly
+1. Look at the PHP and MySQL error logs and fix any code/queries accordingly. Additionally, install/enable Xdebug in development.
 
 2. Look at the access log and slow query log to see if any pages are getting hammered or if any queries are performing poorly
 
