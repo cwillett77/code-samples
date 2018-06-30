@@ -1,5 +1,6 @@
 <?php
-  class Helper {
+
+class Helper {
   
   /**
    * This is a helper method. It strips all xss chars
@@ -35,4 +36,5 @@
     }
     return self::cleanse_string($val);
   }
+
 }
